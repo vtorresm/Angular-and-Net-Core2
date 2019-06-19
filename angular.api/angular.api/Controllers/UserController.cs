@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using angular.api.Models;
+﻿using angular.api.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace angular.api.Controllers
 {
@@ -21,6 +18,36 @@ namespace angular.api.Controllers
                 Apellido = "Perez",
                 Email = "test@test.com"
             });
+        }
+
+        // GET api/values/5
+        [HttpGet("users")]
+        public ActionResult GetUsers()
+        {
+            List<UserViewModel> users = new List<UserViewModel>();
+
+            users.Add(new UserViewModel
+            {
+                Nombre = "Alex",
+                Apellido = "Torres",
+                Email = "test@test.com"
+            });
+
+            users.Add(new UserViewModel
+            {
+                Nombre = "Olga",
+                Apellido = "Duarte",
+                Email = "test@test.com"
+            });
+
+            users.Add(new UserViewModel
+            {
+                Nombre = "Rodrigo",
+                Apellido = "Lopez",
+                Email = "test@test.com"
+            });
+
+            return Ok(users);
         }
 
         [HttpPost("adduser")]

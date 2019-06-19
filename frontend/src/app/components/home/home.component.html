@@ -13,6 +13,19 @@
       <label for="email">Email address</label>
       <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
     </div>
+    <div class="form-group">
+        <app-text [nombre]="'Felipe'"></app-text>
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
+  <div *ngIf="flag">
+    <h1>FLAG ES TRUE</h1>
+  </div>
+
+  <div>
+    <ul>
+      <li *ngFor="let user of users, let indexUser = index">{{user.nombre}}</li>
+    </ul>
+  </div>
 </div>

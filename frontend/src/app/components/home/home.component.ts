@@ -12,6 +12,8 @@ import { FormControl, FormGroup, FormBuilder, FormArray} from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   formDatos: FormGroup;
+  flag = false;
+  users: any[] = [];
 
   constructor(private userService: UserService, private formData: FormBuilder) {
 
@@ -33,6 +35,13 @@ export class HomeComponent implements OnInit {
     userDatos.email = formValue.email;
 
     this.userService.addUser(userDatos);
+
+    this.flag = !this.flag;
+
+    this.userService.getUsers()
+      .subscribe((resp: any) => {
+        this.users = resp;
+      });
   }
 
 }
